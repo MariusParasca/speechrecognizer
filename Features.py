@@ -20,6 +20,8 @@ class Features:
                            mode = 'constant', constant_values = (constant_value_left, constant_value_right))
             if(len(self.input) + 1 == self.rate):
                 self.input = np.append(arr = self.input, values = 0)
+        else:
+            self.input = self.input[0:self.rate]
 
     def emphasising_the_singnal(self):
         self.input = np.append(self.input[0], self.input[1:] - Features.PRE_EMPHASIS * self.input[:-1])
